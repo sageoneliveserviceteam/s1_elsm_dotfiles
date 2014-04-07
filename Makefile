@@ -1,31 +1,31 @@
 DOTFILES=`pwd`
 
 all: 	git-install vim-install zsh-install
-clean: 	git-install vim-install zsh-install
+clean: 	git-remove vim-remove zsh-remove
 
 git-install:
-	ln -sfn ${DOTFILES}/.gitconfig $HOME/.gitconfig
-	ln -sfn ${DOTFILES}/.gitignore $HOME/.gitignore
+	ln -sfn ${DOTFILES}/.gitconfig ~/.gitconfig
+	ln -sfn ${DOTFILES}/.gitignore ~/.gitignore
 
 git-remove:
-	-@rm -f $HOME/.gitconfig
-	-@rm -f $HOME/.gitignore
+	-@rm -f ~/.gitconfig
+	-@rm -f ~/.gitignore
 
 vim-install:
 	git submodule update --init
-	ln -sfn ${DOTFILES}/.vim $HOME/.vim
-	ln -sfn ${DOTFILES}/.vimrc $HOME/.vimrc
+	ln -sfn ${DOTFILES}/.vim ~/.vim
+	ln -sfn ${DOTFILES}/.vimrc ~/.vimrc
 
 vim-remove:
-	-@rm -f $HOME/.vim
-	-@rm -f $HOME/.vimrc
+	-@rm -f ~/.vim
+	-@rm -f ~/.vimrc
 
 zsh-install:
-	ln -sfn ${DOTFILES}/.zsh $HOME/.zsh
-	ln -sfn ${DOTFILES}/.zshrc $HOME/.zshrc
+	ln -sfn ${DOTFILES}/.zsh ~/.zsh
+	ln -sfn ${DOTFILES}/.zshrc ~/.zshrc
 
 zsh-remove:
-	-@rm -f $HOME/.zsh
-	-@rm -f $HOME/.zshrc
+	-@rm -f ~/.zsh
+	-@rm -f ~/.zshrc
 
 .PHONY: all clean
